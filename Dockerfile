@@ -1,6 +1,7 @@
 FROM centos:latest
 MAINTAINER kovidgm@gmail.com
-RUN yum install -y httpd 
+RUN yum install -y httpd \
+  git
 RUN git clone https://github.com/kovid5298/html.git 
 WORKDIR /var/www/html
 RUN cp -rvf html/* .
