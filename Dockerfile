@@ -1,11 +1,11 @@
 FROM centos:latest
 MAINTAINER kovidgm@gmail.com
 RUN yum install -y httpd \
-  git
+ zip \
+ unzip
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page247/kindle.zip /var/www/html/
 WORKDIR /var/www/html
-RUN git clone https://github.com/kovid5298/kovid2.git
-RUN cp -rvf kovid2/test/* .
-RUN rm -rf kovid2
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
-EXPOSE 80
-
+RUN unzip kindle.zip
+RUN cp -rvf markups-kindle/* .
+RUN rm -rf _MACOSX markups-kindle kindle.zip
+CMD ["/us
